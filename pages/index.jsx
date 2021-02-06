@@ -2,6 +2,7 @@ import Nav from '@/components/Nav';
 import { createCards } from '@/lib/db';
 import { NextSeo } from 'next-seo';
 import MessageForm from 'components/MessageForm';
+import CardGrid from './CardGrid';
 
 const onCreateCard = () => {
     const data = {
@@ -17,8 +18,12 @@ export default function Home() {
     return (
         <>
             <NextSeo />
+
             <Nav />
+
             <section className='bg-gray-600'>
+                <br />
+                <CardGrid />
                 <main className='flex flex-col items-center justify-center min-h-screen text-green-400 layout'>
                     <h1>
                         <a

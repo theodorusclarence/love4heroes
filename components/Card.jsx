@@ -29,7 +29,7 @@ export default function Card({ form = defaultForm }) {
                     }}
                 >
                     <div
-                        style={{ width: '480px', height: '520px' }}
+                        // style={{ width: '480px', height: '520px' }}
                         className='flex flex-col px-16 py-16 space-y-10'
                     >
                         <div>Dear {to},</div>
