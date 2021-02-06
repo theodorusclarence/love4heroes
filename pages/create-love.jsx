@@ -8,7 +8,8 @@ export default function createLove() {
     const [form, setForm] = useState({
         to: '',
         from: '',
-        message: '',
+        msg: '',
+        date: new Date(),
         imageKey: 'love',
     });
     const handleFormOnChange = (e) => {

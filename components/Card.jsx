@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import { images } from '@/data/images';
+import { createCards } from '@/lib/db';
 
 const defaultForm = { to: '', from: '', message: '', imageKey: 'love' };
 export default function Card({ form = defaultForm }) {
@@ -21,17 +22,14 @@ export default function Card({ form = defaultForm }) {
                     <img src={images[imageKey].front} alt='' />
                 </div>
 
-                <div
-                    className='bg-red-100'
-                    onClick={handleClick}
-                    style={{
-                        backgroundImage: `url(${images[imageKey].back})`,
-                    }}
-                >
-                    <div
-                        style={{ width: '480px', height: '520px' }}
-                        className='flex flex-col px-16 py-16 space-y-10'
-                    >
+                <div className='bg-red-100' onClick={handleClick}>
+                    <img
+                        src={images[imageKey].back}
+                        alt=''
+                        className='relative'
+                    />
+
+                    <div className='absolute inset-0 flex flex-col px-16 py-16 space-y-10'>
                         <div>Dear {to},</div>
                         <pre className='h-3/4 font-primary'>{message}</pre>
                         <div>
