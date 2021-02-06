@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 
-export default function Card() {
+const defaultForm = { to: '', from: '', message: '', imageId: 1 };
+export default function Card({ form = defaultForm }) {
     const [isFlipped, setIsFlipped] = useState(false);
     const handleClick = () => {
         setIsFlipped((prevState) => !prevState);
@@ -10,7 +11,6 @@ export default function Card() {
     return (
         <div className='flex items-center justify-center h-screen'>
             <ReactCardFlip
-                // containerStyle={{ border: 'black solid 10px' }}
                 isFlipped={isFlipped}
                 flipDirection='horizontal'
                 className='border-2 border-green-600'
@@ -30,13 +30,11 @@ export default function Card() {
                         style={{ width: '480px', height: '520px' }}
                         className='flex flex-col px-16 py-16 space-y-10'
                     >
-                        <div>Dear Ray,</div>
-                        <div className='h-3/4'>
-                            Thank you for your hard work
-                        </div>
+                        <div>Dear {form.to},</div>
+                        <div className='h-3/4'>{form.message}</div>
                         <div>
                             <div>Love,</div>
-                            <div>Ray</div>
+                            <div>{form.from}</div>
                         </div>
                     </div>
                 </div>

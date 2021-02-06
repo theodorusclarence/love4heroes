@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
-const MessageForm = () => {
-    const [from, setFrom] = useState('');
-    const [to, setTo] = useState('');
-    const [message, setMessage] = useState('');
-    const [imageId, setImageId] = useState(1);
+const MessageForm = ({ form, handleFormOnChange, handleImageClick }) => {
+    const { from, to, message, imageId } = form;
+    // const [from, setFrom] = useState('');
+    // const [to, setTo] = useState('');
+    // const [message, setMessage] = useState('');
+    // const [imageId, setImageId] = useState(1);
 
-    const handleImageClick = (id) => {
-        setImageId(id);
-    };
+    // const handleImageClick = (id) => {
+    //     setImageId(id);
+    // };
 
     return (
         <div className='flex justify-center'>
@@ -28,7 +29,8 @@ const MessageForm = () => {
                         className='block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring'
                         name='to'
                         type='text'
-                        onChange={(event) => setTo(event.target.value)}
+                        value={to}
+                        onChange={handleFormOnChange}
                     />
                 </div>
 
@@ -44,7 +46,8 @@ const MessageForm = () => {
                         className='block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring'
                         name='from'
                         type='text'
-                        onChange={(event) => setFrom(event.target.value)}
+                        value={from}
+                        onChange={handleFormOnChange}
                     />
                 </div>
 
@@ -60,16 +63,23 @@ const MessageForm = () => {
                         htmlFor='message'
                         rows='3'
                         className='block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring'
-                        onChange={(event) => setMessage(event.target.value)}
+                        name='message'
+                        onChange={handleFormOnChange}
                     ></textarea>
                 </div>
 
                 <div className='flex space-x-5'>
                     <div
                         className={
-                            (imageId === 1 ? 'selected' : '') + ' ' + 'h-full'
+                            (imageId === '/images/love-card-front.png'
+                                ? 'selected'
+                                : '') +
+                            ' ' +
+                            'h-full'
                         }
-                        onClick={() => handleImageClick(1)}
+                        onClick={() =>
+                            handleImageClick('/images/love-card-front.png')
+                        }
                     >
                         <img
                             src='/images/love-card-front.png'
@@ -77,8 +87,16 @@ const MessageForm = () => {
                         ></img>
                     </div>
                     <div
-                        className={imageId === 2 ? 'selected' : ''}
-                        onClick={() => handleImageClick(2)}
+                        className={
+                            imageId === '/images/grateful-card-front.png'
+                                ? 'selected'
+                                : ''
+                        }
+                        onClick={() =>
+                            handleImageClick(
+                                /images/aefglrtu - card - front.png
+                            )
+                        }
                     >
                         <img src='/images/grateful-card-front.png'></img>
                     </div>

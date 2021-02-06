@@ -3,7 +3,7 @@ import Card from '@/components/Card';
 export default function card() {
     return (
         <div>
-            <Card />
+            <Card form={} />
         </div>
     );
 }
