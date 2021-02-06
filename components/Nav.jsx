@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import SendLoveButton from './SendLoveButton';
 
 export default function Nav() {
@@ -6,9 +7,11 @@ export default function Nav() {
         <nav className='sticky top-0 bg-white'>
             <div className='flex items-center justify-between py-2 text-black layout'>
                 <Link href='/'>
-                    <a className='font-bold'>
-                        <img
-                            className='w-16'
+                    <a className='w-16 font-bold'>
+                        <Image
+                            width={120}
+                            height={87}
+                            responsive={true}
                             src='/images/love4heroes-logo.png'
                             alt='Heart'
                         />
