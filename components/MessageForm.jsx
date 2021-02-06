@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { images } from '@/data/images';
 
 const MessageForm = ({ form, handleFormOnChange, handleImageClick }) => {
-    const { from, to, message, imageId } = form;
+    const { from, to, message, imageKey } = form;
     // const [from, setFrom] = useState('');
     // const [to, setTo] = useState('');
     // const [message, setMessage] = useState('');
-    // const [imageId, setImageId] = useState(1);
+    // const [imageKey, setImageKey] = useState(1);
 
     // const handleImageClick = (id) => {
-    //     setImageId(id);
+    //     setImageKey(id);
     // };
 
     return (
         <div className='flex justify-center'>
-            <div className='w-11/12 max-w-2xl py-5 space-y-5'>
+            <div className='w-full max-w-2xl py-5 space-y-5'>
                 <div>
                     <h2>Send your love</h2>
                 </div>
@@ -61,55 +62,28 @@ const MessageForm = ({ form, handleFormOnChange, handleImageClick }) => {
 
                     <textarea
                         htmlFor='message'
-                        rows='3'
+                        rows='5'
                         className='block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring'
                         name='message'
                         onChange={handleFormOnChange}
                     ></textarea>
                 </div>
 
-                <div className='flex space-x-5'>
-                    <div
-                        className={
-                            (imageId === '/images/love-card-front.png'
-                                ? 'selected'
-                                : '') +
-                            ' ' +
-                            'h-full'
-                        }
-                        onClick={() =>
-                            handleImageClick('/images/love-card-front.png')
-                        }
-                    >
-                        <img
-                            src='/images/love-card-front.png'
-                            className='h-10/12'
-                        ></img>
-                    </div>
-                    <div
-                        className={
-                            imageId === '/images/grateful-card-front.png'
-                                ? 'selected'
-                                : ''
-                        }
-                        onClick={() =>
-                            handleImageClick(
-                                /images/aefglrtu - card - front.png
-                            )
-                        }
-                    >
-                        <img src='/images/grateful-card-front.png'></img>
-                    </div>
-                    <div
-                        className={imageId === 3 ? 'selected' : ''}
-                        onClick={() => handleImageClick(3)}
-                    >
-                        <img src='/images/meow-card-front.png'></img>
-                    </div>
+                <div className='grid grid-cols-3 gap-10'>
+                    {Object.keys(images).map((key) => (
+                        <div
+                            key={key}
+                            className={`${
+                                imageKey === key ? 'selected' : ''
+                            } h-full shadow-md`}
+                            onClick={() => handleImageClick(key)}
+                        >
+                            <img src={images[key].front}></img>
+                        </div>
+                    ))}
                     <style jsx>{`
                         .selected {
                             border: green solid 1px;
-                            box-shadow: 0px 12px 22px 1px #333;
                         }
                     `}</style>
                 </div>

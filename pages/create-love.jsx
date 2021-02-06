@@ -9,29 +9,29 @@ export default function createLove() {
         to: '',
         from: '',
         message: '',
-        imageId: 1,
+        imageKey: 'love',
     });
     const handleFormOnChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
     const handleImageClick = (id) => {
-        setForm({ ...form, imageId: id });
+        setForm({ ...form, imageKey: id });
     };
 
     return (
         <>
             <NextSeo />
             <Nav />
-            <div className='flex justify-center space-x-10'>
-                <div>
+            <div className='flex justify-center space-x-10 layout'>
+                <div className='w-full'>
                     <MessageForm
                         form={form}
                         handleFormOnChange={handleFormOnChange}
                         handleImageClick={handleImageClick}
                     />
                 </div>
-                <div className='hidden md:block'>
+                <div className='hidden w-full md:block'>
                     <Card form={form} />
                 </div>
             </div>
