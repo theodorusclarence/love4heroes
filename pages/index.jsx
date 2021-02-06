@@ -39,15 +39,15 @@ export default function Home() {
                                         Express our gratitude by supporting
                                         frontliners with warm messages
                                     </h3>
-                                    <div className='flex space-x-4'>
+                                    <div className='flex pt-4 space-x-4'>
                                         <Button
-                                            btn
+                                            href='#messages'
                                             className='px-5 py-4 mx-4 mt-4 text-sm font-medium text-white uppercase bg-red-300 rounded hover:bg-blue-200 focus:outline-none focus:bg-indigo-500'
                                         >
                                             See the Messages
                                         </Button>
                                         <Button
-                                            btn
+                                            href='/create-love'
                                             className='px-5 py-4 mx-4 mt-4 text-sm font-medium text-white uppercase bg-red-300 rounded hover:bg-blue-200 focus:outline-none focus:bg-indigo-500'
                                         >
                                             Send love
@@ -75,7 +75,9 @@ export default function Home() {
                     </div>
                 </header>
             </main>
-            <CardGrid />
+            <div id="messages">
+                <CardGrid />
+            </div>
         </>
     );
 }
