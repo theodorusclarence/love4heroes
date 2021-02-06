@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react';
 import { images } from '@/data/images';
+import { useForm } from 'react-hook-form';
 
-const MessageForm = ({ form, handleFormOnChange, handleImageClick }) => {
-    const { from, to, message, imageKey } = form;
-    // const [from, setFrom] = useState('');
-    // const [to, setTo] = useState('');
-    // const [message, setMessage] = useState('');
-    // const [imageKey, setImageKey] = useState(1);
-
-    // const handleImageClick = (id) => {
-    //     setImageKey(id);
-    // };
-
+const MessageForm = ({
+    form,
+    handleFormOnChange,
+    handleImageClick,
+    handleSubmitMessage,
+}) => {
+    const { from, to, msg, imageKey } = form;
+    const { register, handleSubmit, errors } = useForm();
+    // const onSubmit = (data) => console.log(data);
     return (
-        <div className='flex justify-center'>
+        <form
+            onSubmit={handleSubmit(handleSubmitMessage)}
+            className='flex justify-center'
+        >
             <div className='w-full max-w-2xl py-5 space-y-5'>
                 <div>
                     <h2>Send your love</h2>
@@ -31,8 +32,10 @@ const MessageForm = ({ form, handleFormOnChange, handleImageClick }) => {
                         name='to'
                         type='text'
                         value={to}
+                        ref={register({ required: true })}
                         onChange={handleFormOnChange}
                     />
+                    {errors.to && 'To is required'}
                 </div>
 
                 <div className='w-full'>
@@ -64,9 +67,12 @@ const MessageForm = ({ form, handleFormOnChange, handleImageClick }) => {
                         htmlFor='message'
                         rows='5'
                         className='block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring'
-                        name='message'
+                        name='msg'
+                        value={msg}
+                        ref={register({ required: true })}
                         onChange={handleFormOnChange}
                     ></textarea>
+                    {errors.msg && 'Message is required'}
                 </div>
 
                 <div className='grid grid-cols-3 gap-10'>
@@ -89,12 +95,15 @@ const MessageForm = ({ form, handleFormOnChange, handleImageClick }) => {
                 </div>
 
                 <div className='flex justify-center'>
-                    <button className='px-4 py-2 text-white bg-gray-700 rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600'>
+                    <button
+                        type='sumbit'
+                        className='px-4 py-2 text-white bg-gray-700 rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600'
+                    >
                         Submit Message
                     </button>
                 </div>
             </div>
-        </div>
+        </form>
     );
 };
 
