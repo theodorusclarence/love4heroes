@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 const links = [
-    { href: '/', label: 'Route' },
+    { href: '/create-love', label: 'Create Love' },
     { href: '/', label: 'Route' },
 ];
 
@@ -18,7 +18,9 @@ export default function Nav() {
                     {links.map(({ href, label }) => (
                         <li key={`${href}${label}`}>
                             <Link href={href}>
-                                <a className='text-white hover:text-green-400'>{label}</a>
+                                <a className='text-white hover:text-green-400'>
+                                    {label}
+                                </a>
                             </Link>
                         </li>
                     ))}

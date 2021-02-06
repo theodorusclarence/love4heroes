@@ -7,7 +7,6 @@ export default function Home() {
         <>
             <NextSeo />
             <Nav />
-            <MessageForm />
             <section className='bg-gray-600'>
                 <main className='flex flex-col items-center justify-center min-h-screen text-green-400 layout'>
                     <h1>
