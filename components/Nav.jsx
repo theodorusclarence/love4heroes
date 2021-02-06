@@ -1,31 +1,40 @@
 import Link from 'next/link';
-
-const links = [
-    { href: '/create-love', label: 'Create Love' },
-    { href: '/', label: 'Route' },
-];
+import Image from 'next/image';
+import SendLoveButton from './SendLoveButton';
 
 export default function Nav() {
     return (
-        <nav className='bg-gray-700'>
-            <ul className='flex items-center justify-between px-8 py-4'>
-                <li>
-                    <Link href='/'>
-                        <a className='font-bold text-green-400'>Home</a>
-                    </Link>
-                </li>
-                <ul className='flex items-center justify-between space-x-4'>
-                    {links.map(({ href, label }) => (
-                        <li key={`${href}${label}`}>
-                            <Link href={href}>
-                                <a className='text-white hover:text-green-400'>
-                                    {label}
-                                </a>
-                            </Link>
-                        </li>
-                    ))}
+        <nav className='sticky top-0 bg-white'>
+            <div className='flex items-center justify-between py-2 text-black layout'>
+                <Link href='/'>
+                    <a className='w-16 font-bold'>
+                        <Image
+                            width={120}
+                            height={87}
+                            responsive={true}
+                            src='/images/love4heroes-logo.png'
+                            alt='Heart'
+                        />
+                    </a>
+                </Link>
+                <ul className='flex items-center justify-between space-x-8'>
+                    <li>
+                        <Link href='#messages'>
+                            <a className='hover:text-gray-700'>Messages</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href='/create-love'>
+                            <SendLoveButton />
+                        </Link>
+                    </li>
                 </ul>
-            </ul>
+            </div>
+            <style jsx>{`
+                nav {
+                    box-shadow: 0px 2px 6px rgba(232, 128, 129, 0.15);
+                }
+            `}</style>
         </nav>
     );
 }
