@@ -1,26 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@700&family=Poppins:wght@400;500&display=swap');
 
 @tailwind base;
 
 /* Write your own custom base styles here */
+h1,
+h2,
+h3,
+h4 {
+    @apply font-bold font-heading;
+}
+
 h1 {
-    @apply text-3xl font-bold md:text-5xl font-primary;
+    @apply text-3xl md:text-5xl;
 }
 
 h2 {
-    @apply text-2xl font-bold md:text-4xl font-primary;
+    @apply text-2xl md:text-4xl;
 }
 
 h3 {
-    @apply text-xl font-bold md:text-3xl font-primary;
+    @apply text-xl md:text-3xl;
 }
 
 h4 {
-    @apply text-lg font-bold font-primary;
+    @apply text-lg;
 }
 
 body {
-    @apply font-primary;
+    @apply font-body;
 }
 
 .layout {
