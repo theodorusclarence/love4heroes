@@ -3,9 +3,9 @@ import ReactCardFlip from 'react-card-flip';
 import { images } from '@/data/images';
 import { createCards } from '@/lib/db';
 
-const defaultForm = { to: '', from: '', message: '', imageKey: 'love' };
+const defaultForm = { to: '', from: '', msg: '', imageKey: 'love' };
 export default function Card({ form = defaultForm }) {
-    const { to, from, message, imageKey } = form;
+    const { to, from, msg, imageKey } = form;
     const [isFlipped, setIsFlipped] = useState(false);
     const handleClick = () => {
         setIsFlipped((prevState) => !prevState);
@@ -31,7 +31,9 @@ export default function Card({ form = defaultForm }) {
 
                     <div className='absolute inset-0 flex flex-col px-16 py-16 space-y-10'>
                         <div>Dear {to},</div>
-                        <pre className='h-3/4 font-primary'>{message}</pre>
+                        <pre className='whitespace-pre-wrap h-3/4 font-primary text'>
+                            {msg}
+                        </pre>
                         <div>
                             <div>Love,</div>
                             <div>{from}</div>
