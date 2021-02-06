@@ -1,6 +1,7 @@
 import Nav from '@/components/Nav';
 import { createCards } from '@/lib/db';
 import { NextSeo } from 'next-seo';
+import MessageForm from 'components/MessageForm';
 
 const onCreateCard = () => {
     const data = {

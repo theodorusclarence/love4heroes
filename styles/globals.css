@@ -25,8 +25,8 @@ body {
 
 .layout {
     /* 750px */
-    max-width: 43.75rem;
-    @apply w-11/12 mx-auto;
+    max-width: 68.75rem;
+    @apply w-10/12 mx-auto;
 }
 
 /* Start purging... */
