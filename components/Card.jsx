@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 
 export default function Card() {
-    const [isFlipped, setIsFlipped] = useState(true);
+    const [isFlipped, setIsFlipped] = useState(false);
     const handleClick = () => {
         setIsFlipped((prevState) => !prevState);
     };
