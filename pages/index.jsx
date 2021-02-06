@@ -2,7 +2,8 @@ import Nav from '@/components/Nav';
 import { createCards } from '@/lib/db';
 import { NextSeo } from 'next-seo';
 import MessageForm from 'components/MessageForm';
-import react, { useState } from 'react'
+import CardGrid from './CardGrid';
+import react, { useState } from 'react';
 import Button from '@/components/Button';
 
 const onCreateCard = () => {
@@ -16,14 +17,12 @@ const onCreateCard = () => {
 };
 
 export default function Home() {
+    const [count, setCount] = useState(0);
 
-const [count, setCount] = useState(0);
-
-
-  
     return (
         <>
             <NextSeo />
+
             <Nav />
             <main className='flex flex-col items-center justify-center min-h-screen text-green-400'>
                 <header class='bg-white dark:bg-gray-800'>
@@ -40,7 +39,7 @@ const [count, setCount] = useState(0);
                                         Express our gratitude by supporting
                                         frontliners with warm messages
                                     </h3>
-                                    <div className="flex space-x-4">
+                                    <div className='flex space-x-4'>
                                         <Button
                                             btn
                                             className='px-5 py-4 mx-4 mt-4 text-sm font-medium text-white uppercase bg-red-300 rounded hover:bg-blue-200 focus:outline-none focus:bg-indigo-500'
@@ -76,6 +75,7 @@ const [count, setCount] = useState(0);
                     </div>
                 </header>
             </main>
+            <CardGrid />
         </>
     );
 }

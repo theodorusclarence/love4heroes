@@ -12,7 +12,7 @@ export default function Card({ form = defaultForm }) {
     };
 
     return (
-        <div className='flex items-center justify-center h-screen'>
+        <div className='flex items-center justify-center h-full'>
             <ReactCardFlip
                 isFlipped={isFlipped}
                 flipDirection='horizontal'
