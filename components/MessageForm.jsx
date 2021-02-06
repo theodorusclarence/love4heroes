@@ -4,10 +4,10 @@ const MessageForm = () => {
     const [from, setFrom] = useState('');
     const [to, setTo] = useState('');
     const [message, setMessage] = useState('');
-    const [imageId, setImageId] = useState(0);
+    const [imageId, setImageId] = useState(1);
 
-    const handleImageClick = (imageId) => {
-        setImageId(imageId);
+    const handleImageClick = (id) => {
+        setImageId(id);
     };
 
     return (
