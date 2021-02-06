@@ -1,5 +1,16 @@
 import Nav from '@/components/Nav';
+import { createCards } from '@/lib/db';
 import { NextSeo } from 'next-seo';
+
+const onCreateCard = () => {
+    const data = {
+        from: 'Theo',
+        msg: 'Helooo',
+        to: 'Frontliners',
+        date: new Date(),
+    };
+    createCards(data);
+};
 
 export default function Home() {
     return (
@@ -18,17 +29,7 @@ export default function Home() {
                             NextJS Tailwind Starter
                         </a>
                     </h1>
-                    <p className='text-white'>
-                        By{' '}
-                        <a
-                            className='font-bold hover:text-green-400'
-                            href='https://theodorusclarence.github.io'
-                            target='_blank'
-                            rel='noreferer noopener'
-                        >
-                            Clarence
-                        </a>
-                    </p>
+                    <button onClick={onCreateCard}>Create Card</button>
 
                     <footer className='absolute text-gray-100 bottom-2'>
                         © {new Date().getFullYear()}
