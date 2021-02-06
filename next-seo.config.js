@@ -1,6 +1,6 @@
-const title = 'Next.js Tailwind Starter';
+const title = 'love4heroes';
 const description =
-    'A template for Next.js and Tailwindcss by Theodorus Clarence';
+    'An app to send thank you cards to frontline workers. The mission of this app is to let people share gratitude for frontline workers.';
 
 const SEO = {
     title,
