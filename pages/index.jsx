@@ -1,11 +1,13 @@
 import Nav from '@/components/Nav';
 import { NextSeo } from 'next-seo';
+import MessageForm from 'components/MessageForm';
 
 export default function Home() {
     return (
         <>
             <NextSeo />
             <Nav />
+            <MessageForm />
             <section className='bg-gray-600'>
                 <main className='flex flex-col items-center justify-center min-h-screen text-green-400 layout'>
                     <h1>
