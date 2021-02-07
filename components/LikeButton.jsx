@@ -48,7 +48,7 @@ export default function LikeButton() {
                 text-black bg-white border border-black flex flex-col items-center  justify-center p-4 space-y-2 text-sm font-medium rounded-md focus:outline-none`}
             onClick={addLike}
         >
-            <p className='font-bold'>Like for Frontliners</p>
+            <p className='font-bold'>Like for Frontline Workers</p>
             <img src={`/images/logo/heart-pink.svg`} />
             <p>{data?.count.counter || '––'}</p>
         </button>
