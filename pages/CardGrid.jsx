@@ -21,7 +21,7 @@ const CardGrid = () => {
                     ...card,
                     imageKey: card.imageKey ? card.imageKey : 'love',
                 };
-                return <Card form={form} />;
+                return <Card form={form} key={card.id} />;
             })}
         </div>
     );

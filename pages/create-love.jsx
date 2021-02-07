@@ -4,8 +4,11 @@ import { NextSeo } from 'next-seo';
 import { createCards } from '@/lib/db';
 import MessageForm from '@/components/MessageForm';
 import Card from '@/components/Card';
+import { useRouter } from 'next/router';
+import uuid from 'react-uuid';
 
 export default function createLove() {
+    const router = useRouter();
     const [form, setForm] = useState({
         to: '',
         from: '',
@@ -22,15 +25,24 @@ export default function createLove() {
         setForm({ ...form, imageKey: id });
     };
 
-    const handleSubmitMessage = () => {
-        createCards(form);
+    const handleSubmitMessage = async () => {
+        const uid = uuid();
+        await createCards(form, uid);
+        setForm({
+            to: '',
+            from: '',
+            msg: '',
+            date: new Date(),
+            imageKey: 'love',
+        });
+        router.push(`/card/${uid}`);
     };
 
     return (
         <>
             <NextSeo />
             <Nav />
-            <div className='flex justify-center space-x-10 layout'>
+            <div className='flex flex-col justify-center md:space-x-10 md:flex-row layout'>
                 <div className='w-full'>
                     <MessageForm
                         form={form}
@@ -39,7 +51,11 @@ export default function createLove() {
                         handleSubmitMessage={handleSubmitMessage}
                     />
                 </div>
-                <div className='hidden w-full md:block'>
+                <div className='flex flex-col justify-center w-full space-y-3'>
+                    <div className='w-full'>
+                        <h3>Live Preview: </h3>
+                        <p>Try clicking the card!</p>
+                    </div>
                     <Card form={form} />
                 </div>
             </div>

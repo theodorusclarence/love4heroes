@@ -13,35 +13,35 @@ export default function Card({ handleImage, form = defaultForm }) {
     };
 
     return (
-        <div className='flex items-center justify-center h-full'>
-            <ReactCardFlip
-                isFlipped={isFlipped}
-                flipDirection='horizontal'
-                className='border-2 border-green-600'
-            >
-                <div onClick={handleClick}>
-                    <img src={images[imageKey].front} alt='' />
-                </div>
+        // <div className='flex items-center justify-center'>
+        <ReactCardFlip
+            isFlipped={isFlipped}
+            flipDirection='horizontal'
+            className='border-2 border-green-600'
+        >
+            <div onClick={handleClick}>
+                <img src={images[imageKey].front} alt='' className='w-full' />
+            </div>
 
-                <div className='bg-red-100' onClick={handleClick} id='back'>
-                    <img
-                        src={images[imageKey].back}
-                        alt=''
-                        className='relative'
-                    />
+            <div onClick={handleClick} id='back'>
+                <img
+                    src={images[imageKey].back}
+                    alt=''
+                    className='relative w-full'
+                />
 
-                    <div className='absolute inset-0 flex flex-col px-16 py-16 space-y-10'>
-                        <div>Dear {to},</div>
-                        <pre className='whitespace-pre-wrap h-3/4 font-primary text'>
-                            {msg}
-                        </pre>
-                        <div>
-                            <div>Love,</div>
-                            <div>{from}</div>
-                        </div>
+                <div className='absolute inset-0 flex flex-col px-16 py-16 space-y-10'>
+                    <div>Dear {to},</div>
+                    <div className='whitespace-pre-wrap h-3/4 font-primary text'>
+                        {msg}
+                    </div>
+                    <div>
+                        <div>Love,</div>
+                        <div>{from}</div>
                     </div>
                 </div>
-            </ReactCardFlip>
-        </div>
+            </div>
+        </ReactCardFlip>
+        // </div>
     );
 }
