@@ -19,17 +19,21 @@ export default function Card({ form = defaultForm }) {
             className='border-2 border-green-600'
         >
             <div onClick={handleClick}>
-                <img src={images[imageKey].front} alt='' />
+                <img src={images[imageKey].front} alt='' className='w-full' />
             </div>
 
             <div onClick={handleClick}>
-                <img src={images[imageKey].back} alt='' className='relative' />
+                <img
+                    src={images[imageKey].back}
+                    alt=''
+                    className='relative w-full'
+                />
 
                 <div className='absolute inset-0 flex flex-col px-16 py-16 space-y-10'>
                     <div>Dear {to},</div>
-                    <pre className='whitespace-pre-wrap h-3/4 font-primary text'>
+                    <div className='whitespace-pre-wrap h-3/4 font-primary text'>
                         {msg}
-                    </pre>
+                    </div>
                     <div>
                         <div>Love,</div>
                         <div>{from}</div>

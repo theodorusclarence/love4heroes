@@ -42,7 +42,7 @@ export default function createLove() {
         <>
             <NextSeo />
             <Nav />
-            <div className='flex justify-center space-x-10 layout'>
+            <div className='flex flex-col justify-center md:space-x-10 md:flex-row layout'>
                 <div className='w-full'>
                     <MessageForm
                         form={form}
