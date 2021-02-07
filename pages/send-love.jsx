@@ -50,7 +50,7 @@ export default function createLove() {
         <>
             <NextSeo title={title} />
             <Nav />
-            <div className='flex flex-col justify-center py-5 md:space-x-10 md:flex-row layout'>
+            <div className='flex flex-col justify-center py-2 md:space-x-10 md:flex-row layout'>
                 <div className='w-full'>
                     <MessageForm
                         form={form}

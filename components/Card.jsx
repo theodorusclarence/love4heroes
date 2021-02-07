@@ -62,6 +62,9 @@ export default function Card({ handleImage, form = defaultForm, display }) {
                     <div className='font-bold max-w-11/12'>
                         <div>Love,</div>
                         <div>{from}</div>
+                        <p className='mt-2 italic font-normal text-gray-700'>
+                            love4heroes.online
+                        </p>
                     </div>
                     <style jsx>{`
                         .textfield {

@@ -44,7 +44,7 @@ export default function CardPreviewPage() {
                 <Nav />
                 <div
                     style={{ maxWidth: 490, minHeight: 'calc(100vh - 56px)' }}
-                    className='flex flex-col justify-center py-8 layout'
+                    className='flex flex-col justify-center py-4 layout'
                 >
                     {router.query.sender ? (
                         <h3 className='mb-4 text-center'>
@@ -79,6 +79,4 @@ export default function CardPreviewPage() {
     } else {
         return 'Loading...';
     }
-
-    return <div>{data && <pre>{JSON.stringify(data, null, 2)}</pre>}</div>;
 }

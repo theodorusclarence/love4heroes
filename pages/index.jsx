@@ -26,8 +26,8 @@ export default function Home() {
                                 />
                             </figure>
                             <p className='mb-2'>
-                                Express our gratitude by supporting frontliners
-                                with warm messages
+                                Express our gratitude by supporting frontline
+                                workers with warm messages
                             </p>
                             <div className='flex flex-col items-start space-y-2 md:space-x-4 md:space-y-0 md:flex-row'>
                                 <Button href='#messages'>
@@ -83,8 +83,8 @@ export default function Home() {
                 <div className='layout'>
                     <h2 className='mb-2'>Warm Messages</h2>
                     <p className='mb-4'>
-                        These open messages was sent by people worldwide to all
-                        of the frontliners.
+                        These messages were sent by people worldwide to all
+                        of the frontline workers.
                     </p>
                     <CardGrid />
                 </div>
