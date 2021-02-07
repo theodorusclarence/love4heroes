@@ -1,12 +1,12 @@
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
 import fetcher from '@/utils/fetcher';
-import Card from '@/components/Card';
+import CardPreview from '@/components/CardPreview';
 import Download from '@/components/download';
 import Nav from '@/components/Nav';
 import CopyToClipboard from '@/components/CopyToClipboard';
 
-export default function CardPreview() {
+export default function CardPreviewPage() {
     const router = useRouter();
     const { data } = useSWR(`/api/card/${router.query.uid}`, fetcher);
 
@@ -25,8 +25,8 @@ export default function CardPreview() {
                     <h3 className='mb-4 text-center'>
                         Somebody Sent You A Message!
                     </h3>
-                    <Card form={form} />
-                    <div className='flex items-center justify-center'>
+                    <CardPreview form={form} />
+                    <div className='flex items-center justify-center mt-4'>
                         <div style={{ marginRight: 20 }}>
                             <Download />
                         </div>

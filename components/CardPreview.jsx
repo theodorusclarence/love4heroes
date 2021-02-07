@@ -15,26 +15,19 @@ export default function Card({ handleImage, form = defaultForm }) {
     return (
         <ReactCardFlip isFlipped={isFlipped} flipDirection='horizontal'>
             <div onClick={handleClick} className='cursor-pointer'>
-                <figure className='w-full'>
-                    <Image
-                        width={528}
-                        height={572}
+                    <img
+                        className='w-full'
                         src={images[imageKey].front}
                         alt='Card'
                     />
-                </figure>
             </div>
 
             <div onClick={handleClick} className='cursor-pointer' id='back'>
-                <figure className='relative w-full'>
-                    <img
-                        width={528}
-                        height={572}
-                        className='relative w-full'
-                        src={images[imageKey].back}
-                        alt='Card'
-                    />
-                </figure>
+                <img
+                    className='relative w-full'
+                    src={images[imageKey].back}
+                    alt='Card'
+                />
 
                 <div className='absolute inset-0 flex flex-col px-16 py-16 space-y-10'>
                     <div>Dear {to},</div>
