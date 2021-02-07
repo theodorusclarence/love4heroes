@@ -4,9 +4,10 @@ import { images } from '@/data/images';
 import { createCards } from '@/lib/db';
 
 const defaultForm = { to: '', from: '', msg: '', imageKey: 'love' };
-export default function Card({ form = defaultForm }) {
+export default function Card({ handleImage, form = defaultForm }) {
     const { to, from, msg, imageKey } = form;
     const [isFlipped, setIsFlipped] = useState(false);
+
     const handleClick = () => {
         setIsFlipped((prevState) => !prevState);
     };
@@ -22,7 +23,7 @@ export default function Card({ form = defaultForm }) {
                     <img src={images[imageKey].front} alt='' />
                 </div>
 
-                <div className='bg-red-100' onClick={handleClick}>
+                <div className='bg-red-100' onClick={handleClick} id='back'>
                     <img
                         src={images[imageKey].back}
                         alt=''
