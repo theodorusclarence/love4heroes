@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import { images } from '@/data/images';
+import Image from 'next/image';
 import { createCards } from '@/lib/db';
 
 const defaultForm = { to: '', from: '', msg: '', imageKey: 'love' };
@@ -12,20 +13,27 @@ export default function Card({ form = defaultForm }) {
     };
 
     return (
-        <div className='flex items-center justify-center h-full'>
+        <div className='flex items-center justify-center h-full cursor-pointer'>
             <ReactCardFlip
                 isFlipped={isFlipped}
                 flipDirection='horizontal'
                 className='border-2 border-green-600'
             >
                 <div onClick={handleClick}>
-                    <img src={images[imageKey].front} alt='' />
+                    <Image
+                        width={480}
+                        height={520}
+                        src={images[imageKey].front}
+                        alt='Card'
+                    />
                 </div>
 
                 <div className='bg-red-100' onClick={handleClick}>
-                    <img
+                    <Image
+                        width={480}
+                        height={520}
                         src={images[imageKey].back}
-                        alt=''
+                        alt='Card'
                         className='relative'
                     />
 

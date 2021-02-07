@@ -5,7 +5,7 @@ export default function Button({ href, children, btn, onClick }) {
         return (
             <button
                 onClick={onClick}
-                className='flex items-center px-6 py-2 space-x-1 font-bold text-white rounded-md bg-primary hover:bg-hover'
+                className='flex items-center px-4 py-2 space-x-1 font-bold text-white rounded-md lg:px-6 bg-primary hover:bg-hover'
             >
                 {children}
             </button>
@@ -13,7 +13,7 @@ export default function Button({ href, children, btn, onClick }) {
     }
     return (
         <Link href={href}>
-            <a className='flex items-center px-6 py-2 space-x-1 font-bold text-white rounded-md bg-primary hover:bg-hover'>
+            <a className='flex items-center px-4 py-2 space-x-1 font-bold text-white rounded-md lg:px-6 bg-primary hover:bg-hover'>
                 {children}
             </a>
         </Link>
