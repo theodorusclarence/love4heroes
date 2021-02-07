@@ -71,6 +71,7 @@ export default function Card({ handleImage, form = defaultForm, display }) {
                         @media (min-width: 769px) {
                             .textfield {
                                 font-size: min(1vw, 1rem);
+                                ${display && 'font-size: min(1vw, .6rem);'}
                             }
                         }
                     `}</style>
