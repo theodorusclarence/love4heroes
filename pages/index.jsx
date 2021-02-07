@@ -5,6 +5,7 @@ import CardGrid from '@/components/CardGrid';
 import Button from '@/components/Button';
 import SendLoveButton from '@/components/SendLoveButton';
 import LikeButton from '@/components/LikeButton';
+import Footer from '@/components/Footer';
 
 export default function Home() {
     return (
@@ -37,7 +38,7 @@ export default function Home() {
                         </div>
 
                         <div className='flex flex-col items-center justify-center w-full mt-6 md:mt-0 md:w-1/2'>
-                            <figure className='relative w-full'>
+                            <figure className='relative w-full mb-4'>
                                 <Image
                                     width={604}
                                     height={402}
@@ -57,6 +58,22 @@ export default function Home() {
                                 </figcaption>
                             </figure>
                             <LikeButton />
+                            <style jsx>{`
+                                figure {
+                                    animation: float infinite 2.5s ease;
+                                }
+                                @keyframes float {
+                                    0% {
+                                        transform: translatey(0);
+                                    }
+                                    50% {
+                                        transform: translatey(0.75rem);
+                                    }
+                                    100% {
+                                        transform: translatey(0);
+                                    }
+                                }
+                            `}</style>
                         </div>
                     </div>
                 </div>
@@ -72,6 +89,8 @@ export default function Home() {
                     <CardGrid />
                 </div>
             </section>
+
+            <Footer />
         </>
     );
 }
