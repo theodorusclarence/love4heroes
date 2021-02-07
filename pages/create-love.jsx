@@ -5,6 +5,7 @@ import { createCards } from '@/lib/db';
 import MessageForm from '@/components/MessageForm';
 import Card from '@/components/Card';
 import { useRouter } from 'next/router';
+import uuid from 'react-uuid';
 
 export default function createLove() {
     const router = useRouter();
@@ -24,9 +25,17 @@ export default function createLove() {
         setForm({ ...form, imageKey: id });
     };
 
-    const handleSubmitMessage = () => {
-        createCards(form);
-        // router.push();
+    const handleSubmitMessage = async () => {
+        const uid = uuid();
+        await createCards(form, uid);
+        setForm({
+            to: '',
+            from: '',
+            msg: '',
+            date: new Date(),
+            imageKey: 'love',
+        });
+        router.push(`/card/${uid}`);
     };
 
     return (
