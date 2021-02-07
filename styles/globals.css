@@ -53,3 +53,9 @@ body {
 /* Stop purging. */
 
 /* Your own custom utilities */
+.scale {
+    transition: transform 1s ease-out;
+}
+.scale:hover {
+    transform: scale(1.05);
+}

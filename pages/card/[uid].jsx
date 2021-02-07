@@ -43,22 +43,20 @@ export default function CardPreviewPage() {
                 <Nav />
                 <div
                     style={{ maxWidth: 490, minHeight: 'calc(100vh - 56px)' }}
-                    className='flex flex-col justify-center py-4 layout'
+                    className='flex flex-col justify-center py-2 layout'
                 >
                     {router.query.sender ? (
-                        <h3 className='mb-4 text-center'>
+                        <h3 className='text-center '>
                             Thanks for your warm message!
                         </h3>
                     ) : (
-                        <>
-                            <h3 className='text-center'>
-                                Somebody Sent You A Message!
-                            </h3>
-                            <p className='mt-2 mb-4 text-sm text-center text-gray-400'>
-                                Click the card!
-                            </p>
-                        </>
+                        <h3 className='text-center'>
+                            Somebody Sent You A Message!
+                        </h3>
                     )}
+                    <p className='mt-1 mb-2 text-sm text-center text-gray-400'>
+                        Click the card!
+                    </p>
                     <CardPreview form={form} />
                     <div className='flex items-center justify-center mt-4'>
                         <div style={{ marginRight: 20 }}>
