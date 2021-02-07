@@ -26,7 +26,7 @@ export default function Home() {
 
             <Nav />
             {/* <main className='flex flex-col items-center justify-center min-h-screen text-green-400'> */}
-            <header class='bg-white dark:bg-gray-800'>
+            <header className='bg-white dark:bg-gray-800'>
                 <div className='flex justify-center min-h-screen py-14 layout'>
                     <div className='items-center w-full md:flex'>
                         <div className='w-full md:w-1/2'>
