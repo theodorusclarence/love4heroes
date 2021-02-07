@@ -51,7 +51,7 @@ export default function CardPreviewPage() {
                         </h3>
                     ) : (
                         <h3 className='text-center'>
-                            Somebody Sent You A Message!
+                            Somebody sent you a message!
                         </h3>
                     )}
                     <p className='mt-1 mb-2 text-sm text-center text-gray-400'>
