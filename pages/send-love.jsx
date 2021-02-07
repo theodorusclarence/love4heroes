@@ -9,16 +9,22 @@ import uuid from 'react-uuid';
 
 export default function createLove() {
     const router = useRouter();
+
+    // to track dirty
+    const [dirty, setDirty] = useState(false);
     const [form, setForm] = useState({
         to: '',
         from: '',
         msg: '',
         date: new Date(),
         imageKey: 'love',
+        dirty: false,
     });
 
     const handleFormOnChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
+        setDirty(true);
+
+        setForm({ ...form, dirty: !dirty, [e.target.name]: e.target.value });
     };
 
     const handleImageClick = (id) => {
@@ -28,19 +34,17 @@ export default function createLove() {
     const handleSubmitMessage = async () => {
         const uid = uuid();
         await createCards(form, uid);
-        setForm({
-            to: '',
-            from: '',
-            msg: '',
-            date: new Date(),
-            imageKey: 'love',
-        });
-        router.push(`/card/${uid}`);
+        // setForm({
+        //     to: '',
+        //     from: '',
+        //     msg: '',
+        //     date: new Date(),
+        //     imageKey: 'love',
+        // });
+        router.push(`/card/${uid}?sender=true`);
     };
 
     const title = 'Send Love - love4heroes';
-
-    
 
     return (
         <>
