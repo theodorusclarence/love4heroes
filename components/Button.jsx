@@ -1,12 +1,6 @@
 import Link from 'next/link';
 
-export default function Button({
-    href,
-    children,
-    btn,
-    type = 'button',
-    onClick,
-}) {
+export default function Button({ href, children, btn, onClick }) {
     if (btn) {
         return (
             <button

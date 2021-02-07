@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Button from '@/components/Button';
 import Image from 'next/image';
 import SendLoveButton from '@/components/SendLoveButton';
+import LikeButton from '@/components/LikeButton';
 
 const onCreateCard = () => {
     const data = {
@@ -30,7 +31,7 @@ export default function Home() {
                 <div className='flex justify-center min-h-screen py-14 layout'>
                     <div className='items-center w-full md:flex'>
                         <div className='w-full md:w-1/2'>
-                            <figure className='w-36 mx-auto md:mx-0 md:w-48'>
+                            <figure className='mx-auto w-36 md:mx-0 md:w-48'>
                                 <Image
                                     width={200}
                                     height={112}
@@ -60,14 +61,7 @@ export default function Home() {
                                     alt='Illustration'
                                 />
                             </figure>
-                            <button
-                                className='flex flex-col items-center justify-center p-4 space-y-2 text-sm font-medium border border-black rounded-md focus:outline-none'
-                                onClick={() => setCount(count + 1)}
-                            >
-                                <p>Like for Frontliners</p>
-                                <img src='/images/logo/heart-pink.svg' />
-                                <p>{count}</p>
-                            </button>
+                            <LikeButton />
                         </div>
                     </div>
                 </div>

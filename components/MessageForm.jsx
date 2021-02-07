@@ -106,7 +106,13 @@ const MessageForm = ({
                                 } shadow-md`}
                                 onClick={() => handleImageClick(key)}
                             >
-                                <img src={images[key].front} alt='cards' />
+                                <Image
+                                    width={528}
+                                    height={572}
+                                    layout='responsive'
+                                    src={images[key].front}
+                                    alt='cards'
+                                />
                             </div>
                         ))}
                     </div>

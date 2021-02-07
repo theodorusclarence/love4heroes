@@ -1,9 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
 import { images } from '@/data/images';
 import Image from 'next/image';
 
-const defaultForm = { to: '', from: '', msg: '', imageKey: 'love' };
+const defaultForm = {
+    to: '',
+    from: '',
+    msg: '',
+    imageKey: 'love',
+    dirty: 'false',
+};
 export default function Card({ handleImage, form = defaultForm, display }) {
     const { to, from, msg, imageKey } = form;
     // if its on display, show back side first
@@ -12,6 +18,14 @@ export default function Card({ handleImage, form = defaultForm, display }) {
     const handleClick = () => {
         setIsFlipped((prevState) => !prevState);
     };
+
+    useEffect(() => {
+        const handleFirst = () => {
+            setIsFlipped(true);
+        };
+
+        if (form.dirty) handleFirst();
+    }, [form.dirty]);
 
     return (
         <ReactCardFlip isFlipped={isFlipped} flipDirection='horizontal'>
