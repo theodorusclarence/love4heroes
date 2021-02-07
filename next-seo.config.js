@@ -5,20 +5,19 @@ const description =
 const SEO = {
     title,
     description,
-    // canonical: 'https://theodorusclarence.com',
+    canonical: 'https://love4heroes.online',
     openGraph: {
         type: 'website',
         locale: 'en_IE',
-        url: 'https://theodorusclarence.com',
+        url: 'https://love4heroes.online',
         title,
         description,
         images: [
             {
-                url:
-                    'https://theodorusclarence.com/favicon/ms-icon-144x144.png',
+                url: 'https://love4heroes.online/favicon/large-og.jpg',
                 alt: title,
-                width: 144,
-                height: 144,
+                width: 1200,
+                height: 1200,
             },
         ],
     },

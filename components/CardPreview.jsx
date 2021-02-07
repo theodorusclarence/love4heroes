@@ -15,16 +15,16 @@ export default function Card({ handleImage, form = defaultForm }) {
     return (
         <ReactCardFlip isFlipped={isFlipped} flipDirection='horizontal'>
             <div onClick={handleClick} className='cursor-pointer'>
-                    <img
-                        className='w-full'
-                        src={images[imageKey].front}
-                        alt='Card'
-                    />
+                <img
+                    className='w-full shadow-md'
+                    src={images[imageKey].front}
+                    alt='Card'
+                />
             </div>
 
             <div onClick={handleClick} className='cursor-pointer' id='back'>
                 <img
-                    className='relative w-full'
+                    className='relative w-full shadow-md'
                     src={images[imageKey].back}
                     alt='Card'
                 />

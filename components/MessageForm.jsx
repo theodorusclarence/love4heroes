@@ -91,21 +91,25 @@ const MessageForm = ({
                     )}
                 </div>
 
-                <div className='grid grid-cols-3 gap-10'>
-                    {Object.keys(images).map((key) => (
-                        <div
-                            key={key}
-                            className={`${
-                                imageKey === key ? 'ring-2 ring-primary' : ''
-                            } shadow-md`}
-                            onClick={() => handleImageClick(key)}
-                        >
-                            <img
-                                src={images[key].front}
-                                alt='cards'
-                            />
-                        </div>
-                    ))}
+                <div>
+                    <label className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'>
+                        Choose Design:
+                    </label>
+                    <div className='grid grid-cols-3 gap-10'>
+                        {Object.keys(images).map((key) => (
+                            <div
+                                key={key}
+                                className={`${
+                                    imageKey === key
+                                        ? 'ring-2 ring-primary'
+                                        : ''
+                                } shadow-md`}
+                                onClick={() => handleImageClick(key)}
+                            >
+                                <img src={images[key].front} alt='cards' />
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <div className='flex justify-center'>

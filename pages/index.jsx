@@ -30,12 +30,14 @@ export default function Home() {
                 <div className='flex justify-center min-h-screen py-14 layout'>
                     <div className='items-center w-full md:flex'>
                         <div className='w-full md:w-1/2'>
-                            <Image
-                                width={200}
-                                height={112}
-                                src='/images/love4heroes-logo.png'
-                                alt='Logo'
-                            />
+                            <figure className='w-36 mx-auto md:mx-0 md:w-48'>
+                                <Image
+                                    width={200}
+                                    height={112}
+                                    src='/images/love4heroes-logo.png'
+                                    alt='Logo'
+                                />
+                            </figure>
                             <p className='mb-2'>
                                 Express our gratitude by supporting frontliners
                                 with warm messages
@@ -55,7 +57,7 @@ export default function Home() {
                                     height={402}
                                     layout='responsive'
                                     src='/images/logo/heroespic.jpg'
-                                    alt=''
+                                    alt='Illustration'
                                 />
                             </figure>
                             <button

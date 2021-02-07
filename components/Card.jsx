@@ -4,9 +4,10 @@ import { images } from '@/data/images';
 import Image from 'next/image';
 
 const defaultForm = { to: '', from: '', msg: '', imageKey: 'love' };
-export default function Card({ handleImage, form = defaultForm }) {
+export default function Card({ handleImage, form = defaultForm, display }) {
     const { to, from, msg, imageKey } = form;
-    const [isFlipped, setIsFlipped] = useState(false);
+    // if its on display, show back side first
+    const [isFlipped, setIsFlipped] = useState(display ? true : false);
 
     const handleClick = () => {
         setIsFlipped((prevState) => !prevState);
@@ -15,10 +16,12 @@ export default function Card({ handleImage, form = defaultForm }) {
     return (
         <ReactCardFlip isFlipped={isFlipped} flipDirection='horizontal'>
             <div onClick={handleClick} className='cursor-pointer'>
-                <figure className='w-full'>
+                <figure className='w-full shadow-sm'>
                     <Image
                         width={528}
                         height={572}
+                        layout='responsive'
+                        className='shadow-sm'
                         src={images[imageKey].front}
                         alt='Card'
                     />
@@ -26,11 +29,12 @@ export default function Card({ handleImage, form = defaultForm }) {
             </div>
 
             <div onClick={handleClick} className='cursor-pointer' id='back'>
-                <figure className='relative w-full'>
-                    <img
+                <figure className='relative w-full shadow-md'>
+                    <Image
                         width={528}
                         height={572}
-                        className='relative w-full'
+                        layout='responsive'
+                        className='relative shadow-sm'
                         src={images[imageKey].back}
                         alt='Card'
                     />
