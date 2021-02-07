@@ -31,7 +31,7 @@ const MessageForm = ({
                         className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'
                         htmlFor='to'
                     >
-                        To
+                        To:
                     </label>
 
                     <input
@@ -52,7 +52,7 @@ const MessageForm = ({
                         htmlFor='from'
                         className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'
                     >
-                        From
+                        From:
                     </label>
 
                     <input
@@ -73,7 +73,7 @@ const MessageForm = ({
                         className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'
                         htmlFor='message'
                     >
-                        Message
+                        Message:
                     </label>
 
                     <textarea
