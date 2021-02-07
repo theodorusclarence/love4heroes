@@ -14,7 +14,7 @@ const SEO = {
         description,
         images: [
             {
-                url: 'https://love4heroes.online/favicon/large-og.jpg',
+                url: 'https://love4heroes.online/favicon/large-og.png',
                 alt: title,
                 width: 1200,
                 height: 1200,

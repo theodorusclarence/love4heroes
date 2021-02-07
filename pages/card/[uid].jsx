@@ -10,7 +10,6 @@ import { NextSeo } from 'next-seo';
 
 export default function CardPreviewPage() {
     const router = useRouter();
-    console.log(router);
     const { data } = useSWR(`/api/card/${router.query.uid}`, fetcher);
 
     if (data) {
@@ -51,9 +50,14 @@ export default function CardPreviewPage() {
                             Thanks for your warm message!
                         </h3>
                     ) : (
-                        <h3 className='mb-4 text-center'>
-                            Somebody Sent You A Message!
-                        </h3>
+                        <>
+                            <h3 className='text-center'>
+                                Somebody Sent You A Message!
+                            </h3>
+                            <p className='mt-2 mb-4 text-sm text-center text-gray-400'>
+                                Click the card!
+                            </p>
+                        </>
                     )}
                     <CardPreview form={form} />
                     <div className='flex items-center justify-center mt-4'>

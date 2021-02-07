@@ -11,7 +11,7 @@ const MessageForm = ({
 }) => {
     const { from, to, msg, imageKey } = form;
     const { register, handleSubmit, errors } = useForm();
-    // const onSubmit = (data) => console.log(data);
+
     return (
         <form
             onSubmit={handleSubmit(handleSubmitMessage)}
