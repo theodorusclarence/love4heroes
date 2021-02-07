@@ -4,10 +4,9 @@ import { images } from '@/data/images';
 import Image from 'next/image';
 
 const defaultForm = { to: '', from: '', msg: '', imageKey: 'love' };
-export default function Card({ handleImage, form = defaultForm, display }) {
+export default function Card({ handleImage, form = defaultForm }) {
     const { to, from, msg, imageKey } = form;
-    // if its on display, show back side first
-    const [isFlipped, setIsFlipped] = useState(display ? true : false);
+    const [isFlipped, setIsFlipped] = useState(false);
 
     const handleClick = () => {
         setIsFlipped((prevState) => !prevState);
@@ -16,29 +15,19 @@ export default function Card({ handleImage, form = defaultForm, display }) {
     return (
         <ReactCardFlip isFlipped={isFlipped} flipDirection='horizontal'>
             <div onClick={handleClick} className='cursor-pointer'>
-                <figure className='w-full shadow-sm'>
-                    <Image
-                        width={528}
-                        height={572}
-                        layout='responsive'
-                        className='shadow-sm'
-                        src={images[imageKey].front}
-                        alt='Card'
-                    />
-                </figure>
+                <img
+                    className='w-full shadow-md'
+                    src={images[imageKey].front}
+                    alt='Card'
+                />
             </div>
 
             <div onClick={handleClick} className='cursor-pointer' id='back'>
-                <figure className='relative w-full shadow-md'>
-                    <Image
-                        width={528}
-                        height={572}
-                        layout='responsive'
-                        className='relative shadow-sm'
-                        src={images[imageKey].back}
-                        alt='Card'
-                    />
-                </figure>
+                <img
+                    className='relative w-full shadow-md'
+                    src={images[imageKey].back}
+                    alt='Card'
+                />
 
                 <div className='absolute inset-0 flex flex-col px-16 py-16 space-y-10'>
                     <div>Dear {to},</div>

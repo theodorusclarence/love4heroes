@@ -7,12 +7,13 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                heading: ['Montserrat', 'sans-serif'],
+                heading: ['Barlow', 'sans-serif'],
                 body: ['Poppins', 'sans-serif'],
             },
             colors: {
                 primary: '#E88081',
                 hover: '#E9ADAD',
+                offwhite: '#FCF5EE',
             },
         },
     },

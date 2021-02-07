@@ -1,30 +1,56 @@
-import fetcher from '@/utils/fetcher';
-import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import CardComponent from '@/components/Card';
+import { useRouter } from 'next/router';
+import fetcher from '@/utils/fetcher';
+import CardPreview from '@/components/CardPreview';
 import Download from '@/components/download';
 import Nav from '@/components/Nav';
 import CopyToClipboard from '@/components/CopyToClipboard';
+import Button from '@/components/Button';
+import { NextSeo } from 'next-seo';
 
-export default function Card() {
+export default function CardPreviewPage() {
     const router = useRouter();
     const { data } = useSWR(`/api/card/${router.query.uid}`, fetcher);
-    console.log(router);
 
     if (data) {
         const form = {
             ...data,
             imageKey: data.imageKey ? data.imageKey : 'love',
         };
-        return (
-            <div>
-                <Nav />
-                <div className='flex flex-col justify-center h-screen'>
-                    <CardComponent form={form} />
+        
+        if (!data.imageKey) {
+            const title = `Message Not Found - love4heroes`;
+            return (
+                <>
+                    <NextSeo title={title} />
+                    <Nav />
                     <div
-                        className='flex items-center justify-center'
-                        style={{ paddingTop: 10 }}
+                        style={{ minHeight: 'calc(100vh - 56px)' }}
+                        className='flex flex-col items-center justify-center space-y-4 layout'
                     >
+                        <h3 className='text-center '>Message Not Found ;(</h3>
+                        <p>Try checking if you got the right link</p>
+                        <Button href='/'>Go To Home</Button>
+                    </div>
+                </>
+            );
+        }
+
+        
+        const title = `Message From ${data?.from} - love4heroes`;
+        return (
+            <>
+                <NextSeo title={title} />
+                <Nav />
+                <div
+                    style={{ maxWidth: 528, minHeight: 'calc(100vh - 56px)' }}
+                    className='flex flex-col justify-center layout'
+                >
+                    <h3 className='mb-4 text-center'>
+                        Somebody Sent You A Message!
+                    </h3>
+                    <CardPreview form={form} />
+                    <div className='flex items-center justify-center mt-4'>
                         <div style={{ marginRight: 20 }}>
                             <Download />
                         </div>
@@ -33,11 +59,11 @@ export default function Card() {
                         />
                     </div>
                 </div>
-            </div>
+            </>
         );
     } else {
-        //loading
-        return null;
+        return 'Loading...';
     }
+
     return <div>{data && <pre>{JSON.stringify(data, null, 2)}</pre>}</div>;
 }

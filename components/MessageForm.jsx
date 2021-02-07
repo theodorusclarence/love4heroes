@@ -1,6 +1,7 @@
 import { images } from '@/data/images';
 import { useForm } from 'react-hook-form';
 import Button from '@/components/Button';
+import Image from 'next/image';
 
 const MessageForm = ({
     form,
@@ -81,7 +82,7 @@ const MessageForm = ({
                         className='block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring'
                         name='msg'
                         value={msg}
-                        maxlength='200'
+                        maxLength='200'
                         ref={register({ required: true })}
                         onChange={handleFormOnChange}
                     ></textarea>
@@ -90,18 +91,25 @@ const MessageForm = ({
                     )}
                 </div>
 
-                <div className='grid grid-cols-3 gap-10'>
-                    {Object.keys(images).map((key) => (
-                        <div
-                            key={key}
-                            className={`${
-                                imageKey === key ? 'ring-2 ring-primary' : ''
-                            } h-full shadow-md`}
-                            onClick={() => handleImageClick(key)}
-                        >
-                            <img src={images[key].front}></img>
-                        </div>
-                    ))}
+                <div>
+                    <label className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'>
+                        Choose Design:
+                    </label>
+                    <div className='grid grid-cols-3 gap-10'>
+                        {Object.keys(images).map((key) => (
+                            <div
+                                key={key}
+                                className={`${
+                                    imageKey === key
+                                        ? 'ring-2 ring-primary'
+                                        : ''
+                                } shadow-md`}
+                                onClick={() => handleImageClick(key)}
+                            >
+                                <img src={images[key].front} alt='cards' />
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <div className='flex justify-center'>

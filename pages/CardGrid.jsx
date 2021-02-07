@@ -14,14 +14,13 @@ const CardGrid = () => {
     };
 
     return (
-        <div className='grid gap-10 md:grid-cols-3 layout'>
-            {console.log(data)}
+        <div className='grid gap-10 md:grid-cols-3'>
             {data?.cards.map((card) => {
                 const form = {
                     ...card,
                     imageKey: card.imageKey ? card.imageKey : 'love',
                 };
-                return <Card form={form} key={card.id} />;
+                return <Card display form={form} key={card.id} />;
             })}
         </div>
     );

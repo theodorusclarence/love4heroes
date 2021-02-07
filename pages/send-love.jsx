@@ -38,11 +38,15 @@ export default function createLove() {
         router.push(`/card/${uid}`);
     };
 
+    const title = 'Send Love - love4heroes';
+
+    
+
     return (
         <>
-            <NextSeo />
+            <NextSeo title={title} />
             <Nav />
-            <div className='flex flex-col justify-center md:space-x-10 md:flex-row layout'>
+            <div className='flex flex-col justify-center py-5 md:space-x-10 md:flex-row layout'>
                 <div className='w-full'>
                     <MessageForm
                         form={form}

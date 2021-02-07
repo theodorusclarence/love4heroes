@@ -6,6 +6,7 @@ import Button from './Button';
 export default function newCard() {
     const download = () => {
         const node = document.getElementById('back');
+        console.log(node);
 
         domtoimage
             .toJpeg(document.getElementById('back'))
