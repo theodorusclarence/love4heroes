@@ -4,8 +4,10 @@ import { NextSeo } from 'next-seo';
 import { createCards } from '@/lib/db';
 import MessageForm from '@/components/MessageForm';
 import Card from '@/components/Card';
+import { useRouter } from 'next/router';
 
 export default function createLove() {
+    const router = useRouter();
     const [form, setForm] = useState({
         to: '',
         from: '',
@@ -24,6 +26,7 @@ export default function createLove() {
 
     const handleSubmitMessage = () => {
         createCards(form);
+        // router.push();
     };
 
     return (
@@ -39,7 +42,11 @@ export default function createLove() {
                         handleSubmitMessage={handleSubmitMessage}
                     />
                 </div>
-                <div className='hidden w-full md:block'>
+                <div className='flex flex-col justify-center w-full space-y-3'>
+                    <div className='w-full'>
+                        <h3>Live Preview: </h3>
+                        <p>Try clicking the card!</p>
+                    </div>
                     <Card form={form} />
                 </div>
             </div>
