@@ -45,7 +45,7 @@ export default function Home() {
                                     src='/images/logo/heroespic.jpg'
                                     alt='Illustration'
                                 />
-                                <figcaption className='absolute transform -translate-x-1/2 bottom-4 left-1/2'>
+                                <figcaption className='absolute transform -translate-x-1/2 bottom-2 md:bottom-4 left-1/2'>
                                     <a
                                         target='_blank'
                                         rel='noopener noreferer'
