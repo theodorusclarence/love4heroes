@@ -1,6 +1,7 @@
 import react, { useEffect, useState } from 'react';
 import Card from '@/components/Card';
 import domtoimage from 'dom-to-image';
+import Button from './Button';
 
 export default function newCard() {
     const download = () => {
@@ -19,7 +20,9 @@ export default function newCard() {
     return (
         <div>
             <div className='flex items-center justify-center'>
-                <button onClick={() => download()}>Download</button>
+                <Button btn onClick={() => download()}>
+                    Download
+                </Button>
             </div>
         </div>
     );
