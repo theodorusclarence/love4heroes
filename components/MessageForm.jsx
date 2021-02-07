@@ -26,16 +26,19 @@ const MessageForm = ({
                         alt='Heart'
                     />
                 </div>
+                <p className='mt-1 text-xs text-gray-400'>
+                    Card will be shown in the home page.
+                </p>
                 <div className='w-full'>
                     <label
-                        className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'
+                        className='block mb-1 text-sm font-medium text-gray-600 dark:text-gray-200'
                         htmlFor='to'
                     >
                         To:
                     </label>
 
                     <input
-                        className='block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring'
+                        className='block w-full px-4 py-1 text-gray-700 bg-white border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring'
                         name='to'
                         type='text'
                         value={to}
@@ -50,13 +53,13 @@ const MessageForm = ({
                 <div className='w-full'>
                     <label
                         htmlFor='from'
-                        className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'
+                        className='block mb-1 text-sm font-medium text-gray-600 dark:text-gray-200'
                     >
                         From:
                     </label>
 
                     <input
-                        className='block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring'
+                        className='block w-full px-4 py-1 text-gray-700 bg-white border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring'
                         name='from'
                         type='text'
                         value={from}
@@ -70,7 +73,7 @@ const MessageForm = ({
 
                 <div className='w-full'>
                     <label
-                        className='block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200'
+                        className='block mb-1 text-sm font-medium text-gray-600 dark:text-gray-200'
                         htmlFor='message'
                     >
                         Message:

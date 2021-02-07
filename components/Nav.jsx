@@ -21,9 +21,7 @@ export default function Nav() {
                         </Link>
                     </li>
                     <li>
-                        <Link href='/create-love'>
-                            <SendLoveButton />
-                        </Link>
+                        <SendLoveButton />
                     </li>
                 </ul>
             </div>

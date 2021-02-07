@@ -54,15 +54,26 @@ export default function Card({ handleImage, form = defaultForm, display }) {
                     />
                 </figure>
 
-                <div className='absolute inset-0 flex flex-col px-16 py-16 space-y-10'>
-                    <div>Dear {to},</div>
-                    <div className='whitespace-pre-wrap h-3/4 font-primary text'>
+                <div className='absolute inset-0 flex flex-col px-16 py-16 space-y-10 textfield'>
+                    <div className='font-bold max-w-11/12'>Dear {to},</div>
+                    <div className='whitespace-pre-wrap h-3/4 font-primary text max-w-11/12'>
                         {msg}
                     </div>
-                    <div>
+                    <div className='font-bold max-w-11/12'>
                         <div>Love,</div>
                         <div>{from}</div>
                     </div>
+                    <style jsx>{`
+                        .textfield {
+                            font-size: min(2vw, 1rem);
+                        }
+
+                        @media (min-width: 769px) {
+                            .textfield {
+                                font-size: min(1vw, 1rem);
+                            }
+                        }
+                    `}</style>
                 </div>
             </div>
         </ReactCardFlip>

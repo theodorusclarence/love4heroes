@@ -34,14 +34,14 @@ export default function createLove() {
     const handleSubmitMessage = async () => {
         const uid = uuid();
         await createCards(form, uid);
-        setForm({
-            to: '',
-            from: '',
-            msg: '',
-            date: new Date(),
-            imageKey: 'love',
-        });
-        router.push(`/card/${uid}`);
+        // setForm({
+        //     to: '',
+        //     from: '',
+        //     msg: '',
+        //     date: new Date(),
+        //     imageKey: 'love',
+        // });
+        router.push(`/card/${uid}?sender=true`);
     };
 
     const title = 'Send Love - love4heroes';

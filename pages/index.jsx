@@ -1,32 +1,17 @@
-import Nav from '@/components/Nav';
-import { createCards } from '@/lib/db';
 import { NextSeo } from 'next-seo';
-import CardGrid from './CardGrid';
-import { useState } from 'react';
-import Button from '@/components/Button';
 import Image from 'next/image';
+import Nav from '@/components/Nav';
+import CardGrid from '@/components/CardGrid';
+import Button from '@/components/Button';
 import SendLoveButton from '@/components/SendLoveButton';
 import LikeButton from '@/components/LikeButton';
 
-const onCreateCard = () => {
-    const data = {
-        from: 'Theo',
-        msg: 'Helooo',
-        to: 'Frontliners',
-        date: new Date(),
-    };
-    createCards(data);
-};
-
 export default function Home() {
-    const [count, setCount] = useState(0);
-
     return (
         <>
             <NextSeo />
 
             <Nav />
-            {/* <main className='flex flex-col items-center justify-center min-h-screen text-green-400'> */}
             <header className='bg-white dark:bg-gray-800'>
                 <div className='flex justify-center min-h-screen py-14 layout'>
                     <div className='items-center w-full md:flex'>
@@ -52,7 +37,7 @@ export default function Home() {
                         </div>
 
                         <div className='flex flex-col items-center justify-center w-full mt-6 md:mt-0 md:w-1/2'>
-                            <figure className='w-full'>
+                            <figure className='relative w-full'>
                                 <Image
                                     width={604}
                                     height={402}
@@ -60,13 +45,23 @@ export default function Home() {
                                     src='/images/logo/heroespic.jpg'
                                     alt='Illustration'
                                 />
+                                <figcaption className='absolute transform -translate-x-1/2 bottom-4 left-1/2'>
+                                    <a
+                                        target='_blank'
+                                        rel='noopener noreferer'
+                                        className='text-xs text-gray-400 underline'
+                                        href='http://www.freepik.com'
+                                    >
+                                        Designed by Freepik
+                                    </a>
+                                </figcaption>
                             </figure>
                             <LikeButton />
                         </div>
                     </div>
                 </div>
             </header>
-            {/* </main> */}
+
             <section id='messages' className='py-20 bg-offwhite'>
                 <div className='layout'>
                     <h2 className='mb-2'>Warm Messages</h2>
